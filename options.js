@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-	chrome.storage.sync.get({ gradients: true, controls: true, auto: false }, (items) => {
+	chrome.storage.sync.get({ gradients: true, controls: false, auto: false }, (items) => {
 		$("body").append($("<form>").css({"margin":"20px"})
 			.append($("<div>").addClass("mb-3 form-check")
 				.append($("<input>").attr({"type":"checkbox", "id":"gradients"}).addClass("form-check-input").prop({"checked":items.gradients}).on("change", function() {
