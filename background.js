@@ -26,7 +26,6 @@ function reddenPage(settings, locos) {
 	
 	var myset = locos.find((elem) => window.location.hostname.toLowerCase().match(elem.url.toLowerCase()))
 	if (myset) {
-console.log("it")
 		const style = document.createElement('style');
 		if (settings.controls) {
 			style.innerHTML = myset.css.controls;
