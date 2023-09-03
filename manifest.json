@@ -4,7 +4,7 @@
 	"manifest_version": 3,
 	"key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAuNg1cFdAjIf3fDdG7lumaki+NHAt7IYdtDGRqRYcJFS6C9YVojWDPLvaivVo296kWyiSIsMMhieZESaOn3Xu9Vo/Xe9ySm/henACWfq71gWUbdshebcxHzg6+vHJYGKEJ9m2+Ct/mMZARbnojOS64DPru8w1AWnsQwjeU9Og23PxCaTF/obrN4T3uXA5xzCPx4ll/slUmWwFssC/gmfmYXBcYKwdZXkuzp/SAWutR6s7tIRxmWzrTN4bJyfUb+pVXiBM3B11sfuYgLSh/VKEOO9YhsHDtxwhY0Us91WKmq7lnLq/1SnI6JJZgK01xoA60L44soCBIxKZlU6IVgCoKwIDAQAB",
 
-	"version": "0.21",
+	"version": "0.27",
 	"author": "karthic@izonewe.com",  
 	"icons": {
 		"16": "img/icon16.png",
@@ -13,13 +13,7 @@
 		"128": "img/icon128.png"
 		},
 	"description": "Removes semi-transparent overlays from video's on mouseover",
-	"permissions": ["webNavigation", "activeTab", "scripting", "storage", "tabs"],
-	"host_permissions": [
-		"*://*.netflix.com/",
-		"*://*.amazon.com/",
-		"*://*.max.com/",
-		"*://*.mgmplus.com/"
-		],
+	"permissions": ["activeTab", "scripting", "storage", "tabs"],
 
 	"options_ui": {
 		"page": "options.html",

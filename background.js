@@ -19,7 +19,6 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 		{"url":"netflix.com", "css":{"controls":".ltr-16tr625 {display: none;}", "gradients":".watch-video--back-container {display: none;}.watch-video--flag-container {display: none;}"}}, 
 		{"url":"mgmplus.com", "css":{"controls":".bmpui-ui-uicontainer {opacity: 0;}", "gradients":".bmpui-ui-uicontainer {opacity: 0;}"}}, 
 		{"url":"disneyplus.com", "css":{"controls":".btm-media-overlays-container {display: none;}", "gradients":".controls__header:before {background-image: none !important;}.controls__footer:before {background-image: none !important;}"}}, 
-		{"url":"youtube.com", "css":{"controls":".webPlayerUIContainer {display: none;}", "gradients":".fkpovp9 {display: none;}"}}, 
 
 		{"url":"youtube.com", "css":{"controls":".btm-media-overlays-container {display: none;}", "gradients":".ytp-gradient-bottom {height: 0;}.ytp-gradient-top {height: 0;}"}}, 
 		]
