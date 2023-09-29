@@ -13,79 +13,44 @@ chrome.storage.onChanged.addListener((changes, namespace) => {
 
 
 
-	var locos = [
-		{"url":"amazon.com", "css":{"controls":".webPlayerUIContainer {display: none;}", "gradients":".fkpovp9 {display: none;}"}}, 
-		{"url":"max.com", "css":{"controls":"div[class^='AutohiderContainer'] {display: none;}", "gradients":"div[class^='ProtectionLayerContainer'] {display: none;}"}}, 
-		{"url":"netflix.com", "css":{"controls":".ltr-16tr625 {display: none;}", "gradients":".watch-video--back-container {display: none;}.watch-video--flag-container {display: none;}"}}, 
-		{"url":"mgmplus.com", "css":{"controls":".bmpui-ui-uicontainer {opacity: 0;}", "gradients":".bmpui-ui-uicontainer {opacity: 0;}"}}, 
-		{"url":"disneyplus.com", "css":{"controls":".btm-media-overlays-container {display: none;}", "gradients":".controls__header:before {background-image: none !important;}.controls__footer:before {background-image: none !important;}"}}, 
+var locos = [
+    {"url":"amazon.com", "css":{"controls":".webPlayerUIContainer {display: none;}", "gradients":".fkpovp9 {display: none;}"}}, 
+    {"url":"max.com", "css":{"controls":"div[class^='AutohiderContainer'] {display: none;}", "gradients":"div[class^='ProtectionLayerContainer'] {display: none;}"}}, 
+    {"url":"netflix.com", "css":{"controls":".watch-video--bottom-controls-container {display: none;}.watch-video--back-container {display: none;}.watch-video--flag-container {display: none;}", "gradients":".watch-video--back-container {display: none;}.watch-video--flag-container {display: none;}"}}, 
+    {"url":"mgmplus.com", "css":{"controls":".bmpui-ui-uicontainer {opacity: 0;}", "gradients":".bmpui-ui-uicontainer {opacity: 0;}"}}, 
+    {"url":"disneyplus.com", "css":{"controls":".btm-media-overlays-container {display: none;}", "gradients":".controls__header:before {background-image: none !important;}.controls__footer:before {background-image: none !important;}"}}, 
+    {"url":"youtube.com", "css":{"controls":".html5-video-player :not(:first-child) {display:none;}", "gradients":".ytp-gradient-bottom {display:none;}.ytp-gradient-top {display:none;}.ytp-ce-element {display:none;}"}}, 
 
-		{"url":"youtube.com", "css":{"controls":".btm-media-overlays-container {display: none;}", "gradients":".ytp-gradient-bottom {height: 0;}.ytp-gradient-top {height: 0;}"}}, 
-		]
+    {"url":"crackle.com", "css":{"controls":"#player-controls {display: none;}", "gradients":"#player-controls {background: none;}"}}, 
+    {"url":"peacocktv.com", "css":{"controls":".playback-overlay__container {display: none;}.playback-header__container {display: none;}", "gradients":".playback-overlay__container.vod {background: none;}"}}, 
+
+    {"url":"tubitv.com", "css":{"controls":".SHcqi {display: none;}", "gradients":".SHcqi .sknV3 {background-image: none;}.SHcqi .DB9bK {background-image: none;}"}}, 
+    {"url":"pluto.tv", "css":{"controls":".video-player-control-bar-atc {display: none;}", "gradients":".video-player-control-bar-atc {background: none;}"}}, 
+    {"url":"therokuchannel.roku.com", "css":{"controls":".vjs-has-started .vjs-control-bar {display: none;}.video-wrapper .overlay {display: none;}", "gradients":".video-wrapper .overlay {display: none;}"}}, 
+    {"url":"play.xumo.com", "css":{"controls":".jw-controls {display: none;}.jw-controls-backdrop {display: none;}", "gradients":".jw-controls-backdrop {display: none;}"}}, 
+
+    ]
 function reddenPage(settings, locos) {
 	
 	var myset = locos.find((elem) => window.location.hostname.toLowerCase().match(elem.url.toLowerCase()))
 	if (myset) {
-		const style = document.createElement('style');
-		if (settings.controls) {
-			style.innerHTML = myset.css.controls;
-			} else if (settings.gradients) {
-			style.innerHTML = myset.css.gradients;
-
-			}
-		document.body.appendChild(style);
-
-		}
-	}
-
-function reddenPageold(settings) {
-
-	if (window.location.hostname.toLowerCase().includes("amazon.com")) {
-		if (settings.controls) {
-			const style = document.createElement('style');
-			style.innerHTML = `.webPlayerUIContainer {display: none;}`;
-			document.body.appendChild(style);
-
-			} else if (settings.gradients) {
-			const style = document.createElement('style');
-			style.innerHTML = `.fkpovp9 {display: none;}`;
-			document.body.appendChild(style);
-			}
-		} else if (window.location.hostname.toLowerCase().includes("max.com")) {
-		if (settings.controls) {
-			const style = document.createElement('style');
-			style.innerHTML = `div[class^='AutohiderContainer'] {display: none;}`;
-			document.body.appendChild(style);
-
-			} else if (settings.gradients) {
-			const style = document.createElement('style');
-			style.innerHTML = `div[class^='ProtectionLayerContainer'] {display: none;}`;
-			document.body.appendChild(style);
-			}
-		} else if (window.location.hostname.toLowerCase().includes("netflix.com")) {
-		if (settings.controls) {
-			const style = document.createElement('style');
-			style.innerHTML = `.ltr-16tr625 {display: none;}`;
-			document.body.appendChild(style);
-			} else if (settings.gradients) {
-			const style = document.createElement('style');
-			style.innerHTML = `.watch-video--back-container {display: none;}
-					.watch-video--flag-container {display: none;}`;
-			document.body.appendChild(style);
-			}
-		} else if (window.location.hostname.toLowerCase().includes("mgmplus.com")) {
-		if (settings.controls) {
-			const style = document.createElement('style');
-			style.innerHTML = `.bmpui-ui-uicontainer {opacity: 0;}`;
-			document.body.appendChild(style);
-			} else if (settings.gradients) {
-			const style = document.createElement('style');
-			style.innerHTML = `.bmpui-ui-uicontainer {opacity: 0;}`;
-			document.body.appendChild(style);
-			}
-
-		} else {
-		}
+        var alreadyhas = document.querySelector("#karthicremoval");
+        if (alreadyhas) {
+            alreadyhas.remove()
+            } else {
+            const style = document.createElement('style');
+            style.id = "karthicremoval"    
+            if (settings.controls) {
+                style.innerHTML = myset.css.controls;
+                } else if (settings.gradients) {
+                style.innerHTML = myset.css.gradients;
+    
+                }
+            document.body.appendChild(style);
+    
+            }
+        
+        }
 
 	}
 
